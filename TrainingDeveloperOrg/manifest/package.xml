@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>ForLoopsWithList</members>
+		<members>ListAccountListContacts</members>
+		<members>ListCollection</members>
+		<members>MapAccountListContacts</members>
+		<members>MapCollection</members>
+		<members>MapContactsByAccount</members>
+		<members>PrimitiveDataTypes</members>
+		<members>SetColletcion</members>
+		<members>WhileLoopsInApex</members>
+		<name>ApexClass</name>
+	</types>
+	<version>58.0</version>
+</Package>

@@ -1,0 +1,12 @@
+{
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true
+    }
+  ],
+  "name": "TrainingDeveloperOrg",
+  "namespace": "",
+  "sfdcLoginUrl": "arcelormittalsistemas-dev-ed.develop.my.salesforce.com",
+  "sourceApiVersion": "58.0"
+}

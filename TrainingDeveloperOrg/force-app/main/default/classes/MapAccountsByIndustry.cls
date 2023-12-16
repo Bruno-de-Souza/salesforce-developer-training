@@ -1,30 +1,11 @@
 public class MapAccountsByIndustry {
     public void MapAccountsByIndustry() {
-        Map<Id, List<Contact>> contactsAndAccounts = new Map<Id, List<Contact>>();
-        for (Contact c : [SELECT Id, Name, Email, MobilePhone, AccountId, Account.Name, Account.Industry FROM Contact WHERE AccountId != NULL ORDER BY Account.Name]) {
-            if (!contactsAndAccounts.containsKey(c.AccountId)) {
-                contactsAndAccounts.put(c.AccountId, new List<Contact>());
+        Map<String, Map<Id, Map<Id, List<OpportunityLineItem>>>> mapAccountsByIndustryAndOpportunities = new Map<String, Map<Id, Map<Id, List<OpportunityLineItem>>>>();
+        for (OpportunityLineItem opp : [SELECT Id, Name, Opportunity.AccountId, Opportunity.Account.Name, Opportunity.Account.Industry, Opportunity.Name, OpportunityId FROM OpportunityLineItem]){
+            if(!mapAccountsByIndustryAndOpportunities.containsKey(opp.Opportunity.AccountId)) {
+                mapAccountsByIndustryAndOpportunities.put(opp.Opportunity.AccountId,  new Map<Id, Map<Id, List<OpportunityLineItem>>>());
             }
-            contactsAndAccounts.get(c.AccountId).add(c);
-        }
-        for (Id accountId : contactsAndAccounts.keySet()) {
-            Map<String, List<Contact>> contactsByIndustry = new Map<String, List<Contact>>();
-            for (Contact c : contactsAndAccounts.get(accountId)) {
-                if (!contactsByIndustry.containsKey(c.Account.Industry)) {
-                    contactsByIndustry.put(c.Account.Industry, new List<Contact>());
-                }
-                contactsByIndustry.get(c.Account.Industry).add(c);
-            }
-            System.debug(' ======= ' + ' Account Industry: ' + contactsAndAccounts.get(accountId)[0].Account.Industry + ' ======= ');
-            System.debug(' ======= ' + contactsAndAccounts.get(accountId)[0].Account.Name + ' ======= ');
-            for (Contact c: contactsAndAccounts.get(accountId)) {
-                System.debug(' Contacts: ');
-                System.debug(' ---------------------------------- ');
-                System.debug(' Name: ' + (c.Name == null ? ' Name not found! ' : ' Name: ' + c.Name));
-                System.debug(' Email: ' + (c.Email == null ? ' Email not found! ' : ' EMail: ' + c.Email));
-                System.debug(' MobilePhone: ' + (c.MobilePhone == null ? ' MobilePhone not found! ' : 'MobilePhone: ' + c.MobilePhone));
-                System.debug(' ---------------------------------- ');
-            }
+            mapAccountsByIndustryAndOpportunities.get(opp.Opportunity.AccountId).get(opp.Opportunity.Account.Industry).get(opp.OpportunityId).add(opp);
         }
     }
 }

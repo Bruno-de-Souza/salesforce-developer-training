@@ -7,5 +7,9 @@ public class MapAccountsByIndustry {
             }
             mapAccountsByIndustryAndOpportunities.get(opp.Opportunity.AccountId).get(opp.Opportunity.Account.Industry).get(opp.OpportunityId).add(opp);
         }
+        for (String accountIndustry : mapAccountsByIndustryAndOpportunities.keySet()) {
+            mapAccountsByIndustryAndOpportunities.get(accountIndustry);
+            System.debug(' ======= ' + accountIndustry + ' ======= ');
+        }
     }
 }

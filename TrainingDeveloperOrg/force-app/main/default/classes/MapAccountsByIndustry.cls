@@ -16,7 +16,7 @@ public class MapAccountsByIndustry {
         for (String industry : mapAccountsByIndustryOpps.keySet()) {
             System.debug(industry == null ? ' ======= Account Industry Not Found! ' + ' ======= ': + ' ======= Account Industry: ' + industry + ' ======= ');
             for (Id accountId : mapAccountsByIndustryOpps.get(industry).keySet()) {
-                System.debug(accountId == null ? ' ======= Account Name Not Found! ' + ' ======= ' : + ' ======= Account Name: ' +  mapAccountsByIndustryOpps.get(industry).get(accountId).values()[0][0].Opportunity.Account.Name + ' ======= ');
+                System.debug(accountId == null ? ' ======= Account Name Not Found! ' + ' ======= ' : + ' ======= Account Name: ' +  mapAccountsByIndustryOpps.get(industry).get(accountId).values()[0][0].1.Account.Name + ' ======= ');
                 for (Id opportunityId : mapAccountsByIndustryOpps.get(industry).get(accountId).keySet()) {
                     System.debug(opportunityId == null ? ' ======= Opportunity Not Found! ' + ' ======= ' : + ' ======= Opportunity Name: ' + mapAccountsByIndustryOpps.get(industry).get(accountId).get(opportunityId)[0].Opportunity.Name + ' ======= ');
                     for (OpportunityLineItem oppLineItem : mapAccountsByIndustryOpps.get(industry).get(accountId).get(opportunityId)) {

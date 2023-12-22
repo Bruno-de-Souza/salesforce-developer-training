@@ -12,9 +12,9 @@ public class MapOrderConAcc {
             listOrderConAcc.get(o.Account.Name).get(o.Contract.Owner.Name).add(o);
         }
         for (String accName : listOrderConAcc.keySet()) {
-            System.debug(' ======= Account Name: ' + accName + ' ======= '); // Pegando minha 1° chave do meu map
+            System.debug(' ======= Account Name: ' + accName + ' ======= '); // Pego minha 1° chave do meu map
             for (String conName : listOrderConAcc.get(accName).keySet()) {
-                System.debug(' ======= Contract Owner: ' + listOrderConAcc.get(accName).get(conName)[0].Contract.Owner.Name + ' ======= '); //Pego minha 1° chave e pego minha 2° chave do meu map
+                System.debug(' ======= Contract Owner: ' + listOrderConAcc.get(accName).get(conName)[0].Contract.Owner.Name + ' ======= '); //Pego minha 2° chave do meu map
                 for (Order order : listOrderConAcc.get(accName).get(conName)) {
                     System.debug(' ======= Order Number: ' +  order.OrderNumber + ' ======= '); //Pego meu valor do meu map, que é a minha new List<Order>();
                 }

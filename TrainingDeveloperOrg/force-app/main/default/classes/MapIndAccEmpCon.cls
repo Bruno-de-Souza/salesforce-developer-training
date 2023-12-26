@@ -3,7 +3,7 @@ public class MapIndAccEmpCon {
         Map<String, Map<String, Map<Integer, List<Contact>>>> listCon = new Map<String, Map<String, Map<Integer, List<Contact>>>>();
         List<Contact> Con = [ SELECT Account.Industry, Account.Name, Account.NumberOfEmployees, Name FROM Contact LIMIT 100];
         for (Contact c : Con) {
-            if (!listCon.ContainsKey(c.Account.Industry)) {
+            if (!listCon.containsKey(c.Account.Industry)) {
                 listCon.put(c.Account.Industry, new Map<String, Map<Integer, List<Contact>>>());
             }
             if (!listCon.get(c.Account.Industry).containsKey(c.Account.Name)) {

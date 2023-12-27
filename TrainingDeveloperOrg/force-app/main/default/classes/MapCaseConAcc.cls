@@ -1,6 +1,5 @@
 public class MapCaseConAcc {
     public void MapCaseConAcc() {
-        //Map<String, Map<String, Map<String, List<Case>>>> listCaseConAcc = new Map<String, Map<String, Map<String, List<Case>>>>();
         Map<String, Map<String, List<Case>>> listCaseConAcc = new Map<String, Map<String, List<Case>>>();
         List<Case> listCase = [ SELECT CaseNumber, Contact.Name, Account.Name FROM Case ORDER BY CaseNumber LIMIT 100 ];
         for (Case c : listCase) {

@@ -11,8 +11,10 @@ public class MapAccListOfCases {
         for (Id accId : listCases.keySet()) {
             System.debug( ' ======= Account Name: ' + listCases.get(accId)[0].Account.Name + ' ======= ' );
             for (Case caseNumber: listCases.get(accId)) {
-                System.debug( ' ======= Case Related Number: ' + caseNumber.CaseNumber + ' ======= ');
+                System.debug( ' ======= Case Related Number: ' + caseNumber.CaseNumber + ' ======= ');        
             }
+            Integer caseSize = listCases.size();
+            System.debug( ' ======= Number Of Cases Oppened: ' + caseSize + ' ======= ');  
             System.debug( ' --------------------------------------------------------------------------------------- ' );
         }
     }

@@ -13,9 +13,18 @@ public class MapAccListOfCases {
             for (Case caseNumber: listCases.get(accId)) {
                 System.debug( ' ======= Case Related Number: ' + caseNumber.CaseNumber + ' ======= ');        
             }
-            Integer caseSize = listCases.size();
-            System.debug( ' ======= Number Of Cases Oppened: ' + caseSize + ' ======= ');  
             System.debug( ' --------------------------------------------------------------------------------------- ' );
+        }
+        Map<Id, List<Case>> noc = new Map<Id, List<Case>>();
+        List<Case> cc = [ SELECT Id FROM Case LIMIT 100 ];
+        for (Case listOfCc : cc) {
+            if(!noc.containsKey(listOfCc.Id)) {
+                noc.put(listOfCc.Id, new List<Case>());
+            }
+            noc.get(listOfCc.Id).add(listOfCc);
+        }
+        for (Id caseId : noc.keySet()) {
+            System.debug( ' ======= Number of case oppened: '  + noc.Size() + ' ======= ');
         }
     }
 }

@@ -16,7 +16,7 @@ public class MapAccListOfCases {
             Integer totalOfCases = 0;
             for (String caseNumber : listCases.get(accName).keySet()) {
                 System.debug( caseNumber == NULL ? ' ======== Case Number Not Found! ' + ' ======== ' : ' ======= Case Number: ' + caseNumber + ' ======= ');
-                totalOfCases =+ listCases.get(accName).get(caseNumber).size();
+                totalOfCases += listCases.get(accName).get(caseNumber).size();
             }
             System.debug(' ======= Total Of Cases: ' + totalOfCases + ' ======= ');
             System.debug(' ------------------------------------------------------------------------------------ ');

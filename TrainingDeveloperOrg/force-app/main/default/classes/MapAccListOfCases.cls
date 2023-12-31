@@ -13,12 +13,12 @@ public class MapAccListOfCases {
         }
         for (String accName : listCases.keySet()) {
             System.debug( ' ======= Acc Name: ' + accName + ' ======= ');
+            Integer totalOfCasesPerAccount = 0;
             for (String caseNumber : listCases.get(accName).keySet()) {
                 System.debug( caseNumber == NULL ? ' ======== Case Number Not Found! ' + ' ======== ' : ' ======= Case Number: ' + caseNumber + ' ======= ');
-                for (Case totalOfCasesOpened : listCases.get(accName).get(caseNumber)) {
-                    System.debug(' ======= Total Of Cases Opened: ' + listCases.get(accName).get(caseNumber)[0].Id + ' ======= ');
-                }
+                totalOfCasesPerAccount = totalOfCasesPerAccount + listCases.get(accName).get(caseNumber).size();
             }
+            System.debug(' ======= Cases Per Account: ' + totalOfCasesPerAccount);
             System.debug( ' ------------------------------------------------------------------------------------ ' );
         }
     }

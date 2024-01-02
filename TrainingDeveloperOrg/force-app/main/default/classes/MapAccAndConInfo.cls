@@ -17,19 +17,19 @@ public class MapAccAndConInfo {
         }
         
         for (String accName : listOfConsAndAccs.keySet()) {
-            System.debug(' ======= Account Name:  ' + accName + ' ======= ');
+            System.debug(' ======= Account Name: ' + accName + ' ======= ');
             Integer totalOfCons = 0;
             for (String conName : listOfConsAndAccs.get(accName).keySet()) {
-                System.debug(' ======= Contact Name:  ' + conName + ' ======= ');
+                System.debug(' ======= Contact Name: ' + conName + ' ======= ');
                 for (String conTitle : listOfConsAndAccs.get(accName).get(conName).keySet()) {
-                    System.debug(' ======= Contact Title:  ' + conTitle + ' ======= ');
+                    System.debug(conTitle == NULL ? ' ======= No Contact Title Found! ' + ' ======= ' : ' ======= Contact Title: ' + conTitle + ' ======= ');
                     for (Contact conEmail : listOfConsAndAccs.get(accName).get(conName).get(conTitle)) {
-                        System.debug(' ======= Contact Email:  ' + conEmail.Email + ' ======= ');
+                        System.debug(conEmail.Email == NULL ? ' ======= No Contact Email Found! ' + ' ======= ' : ' ======= Contact Email: ' + conEmail.Email + ' ======= ');
                         totalOfCons = totalOfCons + listOfConsAndAccs.get(accName).get(conName).get(conTitle).size();
                     }
                 }
             }
-            System.debug(' ======= Total Of Contacts Per Account:  ' + totalOfCons + ' ======= ');
+            System.debug(' ======= Total Of Contacts Per Account: ' + totalOfCons + ' ======= ');
             System.debug(' ---------------------------------------------------------------------------------------------- ');
         }
     }

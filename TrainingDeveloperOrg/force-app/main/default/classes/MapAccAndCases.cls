@@ -1,7 +1,7 @@
 public class MapAccAndCases {
     public void MapAccAndCases() {
         Map<String, Map<String, List<Case>>> listOfAccAndCases = new Map<String, Map<String, List<Case>>>();
-        List<Case> c = [ SELECT Account.Name, CaseNumber FROM Case Order By Account.Name DESC LIMIT 100 ];
+        List<Case> c = [ SELECT Account.Name, CaseNumber FROM Case Order By CaseNumber asc LIMIT 100 ];
         for (Case cases : c) {
             if(!listOfAccAndCases.containsKey(cases.Account.Name)) {
                 listOfAccAndCases.put(cases.Account.Name, new Map<String, List<Case>>());

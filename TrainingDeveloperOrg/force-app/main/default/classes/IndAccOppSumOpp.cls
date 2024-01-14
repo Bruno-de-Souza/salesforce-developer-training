@@ -7,12 +7,18 @@ public class IndAccOppSumOpp {
                 mapIndAccOppSumOpp.put(c.Account.Industry, new Map<String, Map<Id, List<Opportunity>>>());
             }
             if (!mapIndAccOppSumOpp.get(c.Account.Industry).containsKey(c.Account.Name)) {
-                mapIndAccOppSumOpp.get(c.Account.Name).put(c.Account.Name, new Map<Id, List<Opportunity>>());
+                mapIndAccOppSumOpp.get(c.Account.Industry).put(c.Account.Name, new Map<Id, List<Opportunity>>());
             }
             if (!mapIndAccOppSumOpp.get(c.Account.Industry).get(c.Account.Name).containsKey(c.Id)) {
                 mapIndAccOppSumOpp.get(c.Account.Industry).get(c.Account.Name).put(c.Id, new List<Opportunity>());
             }
             mapIndAccOppSumOpp.get(c.Account.Industry).get(c.Account.Name).get(c.Id).add(c);
+        }
+        for (String ind : mapIndAccOppSumOpp.keySet()) {
+            System.debug(' ======= Account Industry ' + ind + ' ======= ');
+            for (String acc : mapIndAccOppSumOpp.get(ind).keySet()) {
+                System.debug(' ======= Account Name ' + acc + ' ======= ');
+            }
         }
     }
 }

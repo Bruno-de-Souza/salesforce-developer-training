@@ -15,10 +15,17 @@ public class IndAccOppSumOpp {
             mapIndAccOppSumOpp.get(c.Account.Industry).get(c.Account.Name).get(c.Id).add(c);
         }
         for (String ind : mapIndAccOppSumOpp.keySet()) {
-            System.debug(' ======= Account Industry ' + ind + ' ======= ');
+            System.debug(' ======= Account Industry: ' + ind + ' ======= ');
+            Integer sumOpp = 0;
             for (String acc : mapIndAccOppSumOpp.get(ind).keySet()) {
-                System.debug(' ======= Account Name ' + acc + ' ======= ');
+                System.debug(' ======= Account Name: ' + acc + ' ======= ');
+                for (Id opp : mapIndAccOppSumOpp.get(ind).get(acc).keySet()) {
+                	System.debug(' ======= Opportunity Name: ' + mapIndAccOppSumOpp.get(ind).get(acc).get(opp)[0].Name + ' ======= ');
+                    sumOpp = sumOpp + mapIndAccOppSumOpp.get(ind).get(acc).get(opp).size();
+                }
             }
+            System.debug(' ======= Total Of Opportunities Per Account: ' + sumOpp + ' ======= ');
+            System.debug(' ------------------------------------------------------------------------------------------------------------- ');
         }
     }
 }

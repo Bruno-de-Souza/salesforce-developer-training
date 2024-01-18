@@ -16,15 +16,18 @@ public class IndAccOppSumOpp {
         }
         for (String ind : mapIndAccOppSumOpp.keySet()) {
             System.debug(' ======= Account Industry: ' + ind + ' ======= ');
+            Integer sumAcc = 0;
             Integer sumOpp = 0;
             for (String acc : mapIndAccOppSumOpp.get(ind).keySet()) {
+                sumAcc = sumOpp + mapIndAccOppSumOpp.get(ind).get(acc).size();
                 System.debug(' ======= Account Name: ' + acc + ' ======= ');
                 for (Id opp : mapIndAccOppSumOpp.get(ind).get(acc).keySet()) {
-                	System.debug(' ======= Opportunity Name: ' + mapIndAccOppSumOpp.get(ind).get(acc).get(opp)[0].Name + ' ======= ');
+                    System.debug(' ======= Opportunity Name: ' + mapIndAccOppSumOpp.get(ind).get(acc).get(opp)[0].Name + ' ======= ');
                     sumOpp = sumOpp + mapIndAccOppSumOpp.get(ind).get(acc).get(opp).size();
                 }
             }
             System.debug(' ======= Total Of Opportunities Per Account: ' + sumOpp + ' ======= ');
+            System.debug(' ======= Total Of Accounts Per Industry: ' + sumAcc + ' ======= ');
             System.debug(' ------------------------------------------------------------------------------------------------------------- ');
         }
     }

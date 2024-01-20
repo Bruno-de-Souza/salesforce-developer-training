@@ -1,7 +1,7 @@
 public class IndAccOppSumOpp {
     public void IndAccOppSumOpp() {
         Map<String, Map<String, Map<Id, List<Opportunity>>>> mapIndAccOppSumOpp = new Map<String, Map<String, Map<Id, List<Opportunity>>>>();
-        List<Opportunity> cons = [ SELECT Id, Name, Account.Industry, Account.Name FROM Opportunity ORDER BY Account.Industry LIMIT 100 ];
+        List<Opportunity> cons = [ SELECT Id, Name, Account.Industry, Account.Name, Account.Id FROM Opportunity ORDER BY Account.Industry LIMIT 100 ];
         for (Opportunity c : cons) {
             if (!mapIndAccOppSumOpp.containsKey(c.Account.Industry)) {
                 mapIndAccOppSumOpp.put(c.Account.Industry, new Map<String, Map<Id, List<Opportunity>>>());
@@ -17,9 +17,9 @@ public class IndAccOppSumOpp {
         for (String ind : mapIndAccOppSumOpp.keySet()) {
             System.debug(' ======= Account Industry: ' + ind + ' ======= ');
             Integer sumAcc = 0;
+            sumAcc = sumAcc + mapIndAccOppSumOpp.get(ind).size();
             Integer sumOpp = 0;
             for (String acc : mapIndAccOppSumOpp.get(ind).keySet()) {
-                sumAcc = sumOpp + mapIndAccOppSumOpp.get(ind).get(acc).size();
                 System.debug(' ======= Account Name: ' + acc + ' ======= ');
                 for (Id opp : mapIndAccOppSumOpp.get(ind).get(acc).keySet()) {
                     System.debug(' ======= Opportunity Name: ' + mapIndAccOppSumOpp.get(ind).get(acc).get(opp)[0].Name + ' ======= ');

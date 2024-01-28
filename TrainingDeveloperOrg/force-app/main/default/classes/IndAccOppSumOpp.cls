@@ -15,7 +15,7 @@ public class IndAccOppSumOpp {
             mapIndAccOppSumOpp.get(c.Account.Industry).get(c.Account.Name).get(c.Id).add(c);
         }
         for (String ind : mapIndAccOppSumOpp.keySet()) {
-            System.debug(' ======= Account Industry: ' + ind + ' ======= ');
+            System.debug(ind == Null ? ' ======= Account Industry Not Found! ======= ' : ' ======= Account Industry: ' + ind + ' ======= ');
             Integer sumAcc = 0;
             sumAcc = sumAcc + mapIndAccOppSumOpp.get(ind).size();
             Integer sumOpp = 0;

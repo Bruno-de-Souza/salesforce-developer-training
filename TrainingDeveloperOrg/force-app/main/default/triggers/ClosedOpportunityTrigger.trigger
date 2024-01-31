@@ -1,11 +1,12 @@
 trigger ClosedOpportunityTrigger on Opportunity (after insert, after update) {
-	List<Opportunity> toProcess = null;
-    switch on Trigger.operationType {
-        when AFTER_INSERT {
-            toProcess = Trigger.New;
-        }
-        when AFTER_UPDATE {
-            toProcess = [ SELECT Id, StageName FROM Opportunity WHERE StageName = 'Closed Won' ];
+    List<Task> taskList = new List<Task>();
+    for(Opportunity opp : Trigger.new){
+        if(opp.StageName == 'Closed Won'){
+            Task t = new Task();
+            t.Subject = 'Follow Up Test Task';
+            t.WhatId = opp.Id;
+            taskList.add(t);
         }
     }
+    insert taskList;
 }

@@ -1,6 +1,6 @@
-public class AOrAn {
+public with sharing class AOrAn {
     public String AOrAn(String word) {
-        String w = (word.startsWith('a') || word.startsWith('e') || word.startsWith('i') || word.startsWith('o') || word.startsWith('u') ? 'an ' + word : 'a ' + word);
-        return w;
+        List<String> v = new List<String>{'a', 'e', 'i', 'o', 'u'};
+        return v.contains(word.substring(0, 1)) ? 'an ' + word : 'a ' + word;
     }
 }

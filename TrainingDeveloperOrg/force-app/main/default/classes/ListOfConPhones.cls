@@ -4,6 +4,5 @@ public class ListOfConPhones {
         for (Id c: listCon.keySet()) {
             System.debug(' ======= Contact Name: ' + listCon.get(c).Name + ' - ' + 'Phone Number: ' + listCon.get(c).Phone + ' ======= ');
         }
-        System.debug('The listCon Map: ' + listCon);
     }
 }

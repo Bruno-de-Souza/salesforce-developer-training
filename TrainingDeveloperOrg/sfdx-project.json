@@ -5,8 +5,8 @@
       "default": true
     }
   ],
-  "name": "TrainingDeveloperOrg",
+  "name": "Dev | Org",
   "namespace": "",
-  "sfdcLoginUrl": "arcelormittalsistemas-dev-ed.develop.my.salesforce.com",
+  "sfdcLoginUrl": "https://bms18-dev-ed.develop.lightning.force.com",
   "sourceApiVersion": "58.0"
 }

@@ -4,11 +4,11 @@ public with sharing class GetAddressOutboundService {
 
     }
 
-    public void getAddress (String zipCode) {
+    public GetAddressResponse getAddress (String zipCode) {
 
         HttpRequest request = new HttpRequest();        
 
-        request.setEndpoint('https://viacep.com.br/ws/01001000/json/');
+        request.setEndpoint('https://viacep.com.br/ws/' + zipCode + '/json/');
 
         request.setMethod('GET');
 
@@ -23,6 +23,8 @@ public with sharing class GetAddressOutboundService {
         System.debug( response.getStatus() );
         
         System.debug( response.getBody() );
+
+        return GetAddressResponse.fromJson( response.getBody() );
 
     }
 

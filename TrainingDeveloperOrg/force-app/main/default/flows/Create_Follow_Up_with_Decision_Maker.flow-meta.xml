@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Chatter_Post_to_Manager</name>
+        <label>Chatter Post to Manager</label>
+        <locationX>176</locationX>
+        <locationY>539</locationY>
+        <actionName>chatterPost</actionName>
+        <actionType>chatterPost</actionType>
+        <connector>
+            <targetReference>Create_Task</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <elementReference>ChatterPostManager</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subjectNameOrId</name>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>chatterPost</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
     <apiVersion>60.0</apiVersion>
     <description>Create Follow-Up with Decision Maker- Object Opportunity</description>
     <environments>Default</environments>
@@ -14,7 +41,7 @@
     <processMetadataValues>
         <name>CanvasMode</name>
         <value>
-            <stringValue>FREE_FORM_CANVAS</stringValue>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -28,8 +55,8 @@
         <description>Create Task</description>
         <name>Create_Task</name>
         <label>Create Task</label>
-        <locationX>584</locationX>
-        <locationY>479</locationY>
+        <locationX>176</locationX>
+        <locationY>647</locationY>
         <inputAssignments>
             <field>OwnerId</field>
             <value>
@@ -73,11 +100,11 @@
         <description>Get Decision Maker From Opportunities</description>
         <name>Get_Decision_Maker</name>
         <label>Get Decision Maker</label>
-        <locationX>584</locationX>
-        <locationY>371</locationY>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Create_Task</targetReference>
+            <targetReference>Get_Owner_Manager</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -100,9 +127,30 @@
         <sortOrder>Desc</sortOrder>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <name>Get_Owner_Manager</name>
+        <label>Get Owner Manager</label>
+        <locationX>176</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Chatter_Post_to_Manager</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Owner.Manager.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <start>
-        <locationX>458</locationX>
-        <locationY>48</locationY>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>Get_Decision_Maker</targetReference>
         </connector>
@@ -127,4 +175,11 @@
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Active</status>
+    <textTemplates>
+        <name>ChatterPostManager</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>@[{!$User.ContactId}], 
+This opportunity was marked Closed Lost.
+Closed by: {!$User.FirstName} {!$User.LastName} {!$User.Email}</text>
+    </textTemplates>
 </Flow>

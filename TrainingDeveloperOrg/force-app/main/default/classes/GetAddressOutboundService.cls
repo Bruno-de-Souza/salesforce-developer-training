@@ -18,11 +18,11 @@ public with sharing class GetAddressOutboundService {
 
         HttpResponse response = http.send(request);
         
-        System.debug( response.getStatusCode() );
+        System.debug( 'Status code: ' + response.getStatusCode() );
         
-        System.debug( response.getStatus() );
+        System.debug( 'Status: ' + response.getStatus() );
         
-        System.debug( response.getBody() );
+        System.debug( 'Response Body: ' + response.getBody() );
 
         return GetAddressResponse.fromJson( response.getBody() );
 

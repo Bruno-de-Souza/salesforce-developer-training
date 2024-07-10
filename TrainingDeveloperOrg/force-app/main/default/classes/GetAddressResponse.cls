@@ -1,16 +1,19 @@
+/**
+ * @author bruno.moreira
+ */
 public with sharing class GetAddressResponse {
     
-    String cep;
-    String logradouro;
-    String complemento;
-    String unidade;
-    String bairro;
-    string localidade;
-    String uf;
-    String ibge;
-    String gia;
-    String ddd;
-    string siafi;
+    public String logradouro;
+    public String complemento;
+    public String unidade;
+    public String cep;
+    public String bairro;
+    public string localidade;
+    public String uf;
+    public String ibge;
+    public String gia;
+    public String ddd;
+    public string siafi;
 
     public GetAddressResponse() {
     }

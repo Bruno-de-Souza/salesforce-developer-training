@@ -1,7 +1,9 @@
+/**
+ * @author bruno.moreira
+ */
 public with sharing class GetAddressOutboundService {
     
     public GetAddressOutboundService() {
-
     }
 
     public GetAddressResponse getAddress (String zipCode) {

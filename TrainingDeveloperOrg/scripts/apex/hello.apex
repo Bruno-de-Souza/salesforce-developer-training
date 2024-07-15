@@ -8,3 +8,14 @@
 string tempvar = 'Enter_your_name_here';
 System.debug('Hello World!');
 System.debug('My name is ' + tempvar);
+
+new NotaFiscal().imprimeNota('2345778');
+
+Customer customer = new customer();
+customer.name = 'Bruno Moreira';
+customer.email = 'brunomoreiramg@gmail.com';
+customer.isActive = true;
+customer.type = 'Gold';
+
+customer.addContact('Daniel Silveira', 'danielsilveira111@gmail.com');
+customer.addContact('Bruno Moreira', 'brunomoreiramg@gmail.com');

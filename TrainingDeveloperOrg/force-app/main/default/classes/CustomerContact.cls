@@ -7,6 +7,4 @@ public with sharing class CustomerContact {
 
     }
 
-
-
 }

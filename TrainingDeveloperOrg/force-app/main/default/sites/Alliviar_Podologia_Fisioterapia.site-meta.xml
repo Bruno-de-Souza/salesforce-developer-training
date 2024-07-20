@@ -19,12 +19,12 @@
     <genericErrorPage>Exception</genericErrorPage>
     <inMaintenancePage>InMaintenance</inMaintenancePage>
     <indexPage>CommunitiesLanding</indexPage>
-    <masterLabel>CloudKicksTheme</masterLabel>
+    <masterLabel>Alliviar | Podologia | Fisioterapia</masterLabel>
     <redirectToCustomDomain>false</redirectToCustomDomain>
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>souza@ams.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>souza@ams.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>bruno@bms-dev.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>bruno@bms-dev.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <urlPathPrefix>CloudKicksTheme</urlPathPrefix>
+    <urlPathPrefix>alliviarvforcesite</urlPathPrefix>
 </CustomSite>

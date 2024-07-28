@@ -1,3 +1,6 @@
+/**
+ *@author bruno.moreira
+ */
 public with sharing class CustomerContact {
 
     public String name;

@@ -1,7 +1,7 @@
 public class Manager extends Employee {
     
     public Manager() {
-        System.debug('Construtor Manager');
+        name = 'Manager';
     }
 
 }

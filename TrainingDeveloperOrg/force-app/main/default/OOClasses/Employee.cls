@@ -1,7 +1,7 @@
 public virtual class Employee {
     
-    public String name;
-    public Decimal salary;
+    protected String name;
+    protected Decimal salary;
     
     public Employee() {
         System.debug('Construtor Employee');

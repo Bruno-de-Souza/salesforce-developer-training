@@ -20,10 +20,12 @@ customer.type = 'Gold';
 customer.addContact('Daniel Silveira', 'danielsilveira111@gmail.com');
 customer.addContact('Bruno Moreira', 'brunomoreiramg@gmail.com');
 
+
 Manager manager = new Manager();
 manager.name = 'Bruno Moreira';
 manager.salary = 20.000;
 system.debug(manager);
+
 
 Adivisor adivisor = new Adivisor();
 adivisor.name = 'Gustavo Morelato';

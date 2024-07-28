@@ -4,7 +4,7 @@ public virtual class Employee {
     public Decimal salary;
     
     public Employee() {
-
+        System.debug('Construtor Employee');
     }
-    
+
 }

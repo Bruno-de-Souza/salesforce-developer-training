@@ -50,4 +50,11 @@ public class Customer {
 
     }
 
+    //Inner Class of the class Customer
+    public class Address {
+
+        public String street;
+    
+    }
+
 } 

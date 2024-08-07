@@ -25,11 +25,50 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordCreates>
+        <description>Creates a task for the Opportunity owner to coordinate with the Account owner on their new account.</description>
+        <name>Coordination_Task</name>
+        <label>Coordination Task</label>
+        <locationX>314</locationX>
+        <locationY>276</locationY>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <dateValue>2024-08-06</dateValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <stringValue>Devise an action plan to welcome the new customer from your opportunity</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <stringValue>Coordinate with Account Owner</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
         <description>Create a draft contract when an opportunity is won and is over 25,000.</description>
         <name>Create_Draft_Contract</name>
         <label>Create Draft Contract</label>
-        <locationX>176</locationX>
-        <locationY>323</locationY>
+        <locationX>50</locationX>
+        <locationY>276</locationY>
         <inputAssignments>
             <field>AccountId</field>
             <value>
@@ -46,7 +85,7 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <start>
-        <locationX>50</locationX>
+        <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Create_Draft_Contract</targetReference>
@@ -69,6 +108,17 @@
         </filters>
         <object>Opportunity</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>X5_Days_After_Close</name>
+            <connector>
+                <targetReference>Coordination_Task</targetReference>
+            </connector>
+            <label>5 Days After Close</label>
+            <offsetNumber>5</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>CloseDate</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Active</status>

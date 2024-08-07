@@ -28,8 +28,8 @@
         <description>Create Email Task.</description>
         <name>Create_Email_Task</name>
         <label>Create Email Task</label>
-        <locationX>176</locationX>
-        <locationY>323</locationY>
+        <locationX>50</locationX>
+        <locationY>276</locationY>
         <inputAssignments>
             <field>ActivityDate</field>
             <value>
@@ -57,8 +57,47 @@
         <object>Task</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
+    <recordCreates>
+        <description>Create Phone Call Task.</description>
+        <name>Create_Phone_Call_Task</name>
+        <label>Create Phone Call Task</label>
+        <locationX>314</locationX>
+        <locationY>276</locationY>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <dateValue>2024-08-06</dateValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <stringValue>Call to check in with the customer</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <stringValue>Outreach phone call</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
     <start>
-        <locationX>50</locationX>
+        <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Create_Email_Task</targetReference>
@@ -81,6 +120,17 @@
         </filters>
         <object>Opportunity</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>X3_Days_After_Last_Modified_Date</name>
+            <connector>
+                <targetReference>Create_Phone_Call_Task</targetReference>
+            </connector>
+            <label>3 Days After Last Modified Date</label>
+            <offsetNumber>3</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>LastModifiedDate</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Active</status>

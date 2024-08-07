@@ -1,7 +1,7 @@
 /**
  * @author bruno.moreira
  */
-public with sharing class Customer {
+public class Customer {
     
     public String name;
     public String email;
@@ -50,4 +50,4 @@ public with sharing class Customer {
 
     }
 
-}
+} 

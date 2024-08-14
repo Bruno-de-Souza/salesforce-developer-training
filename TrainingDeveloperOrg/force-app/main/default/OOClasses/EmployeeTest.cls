@@ -1,21 +1,29 @@
+/**
+ * @author bruno.moreira
+ */
 @isTest
 public class EmployeeTest {
+    
 
     @isTest
-    public static void shouldCreateEmployee() {
+    public static void shouldCreateEmployee () {
 
-        Manager manager = new Manager();
-        manager.name = manager.name;
-        manager.salary = 20000;
-        System.debug(manager);
-        System.debug(manager.getBonus());
-
-        Advisor advisor = new Advisor();
-        advisor.name = advisor.name;
+        Advisor advisor = new Advisor ();
+        advisor.name = 'Advisor';
         advisor.salary = 10000;
-        System.debug(advisor);
-        System.debug(advisor.getBonus());
+        System.debug( advisor.getBonus() );
+        
 
+        Manager manager = new Manager ();
+        manager.name = 'Manager';
+        manager.salary = 20000;
+        System.debug( manager.getBonus() );   
+        
+        Employee employee = manager;
+
+        Manager castManager = (Manager) employee;
+
+        
     }
 
 }

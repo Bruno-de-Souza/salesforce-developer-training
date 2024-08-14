@@ -4,12 +4,13 @@
 public class Manager extends Employee {
     
     public Manager() {
-        name = 'John';
+        super();
     }
 
     override
-    public Decimal getBonus() {
-        return super.getBonus() + 2000;
-    }
+    public Decimal getBonus () {
+        Decimal bonus = super.getBonus();
+        return bonus + 7000;       
+    } 
 
 }

@@ -29,11 +29,11 @@
         <name>Create_Campaign</name>
         <label>Create Campaign</label>
         <locationX>176</locationX>
-        <locationY>323</locationY>
+        <locationY>134</locationY>
         <inputAssignments>
             <field>Name</field>
             <value>
-                <elementReference>campName</elementReference>
+                <stringValue>Child of {!campName}</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -63,11 +63,14 @@
         <connector>
             <targetReference>Create_Campaign</targetReference>
         </connector>
-        <object>Campaign</object>
-        <recordTriggerType>Create</recordTriggerType>
-        <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Active</status>
+    <textTemplates>
+        <description>Child_of_Camp_Name</description>
+        <name>Child_of_Camp_Name</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Child of {!campName}&lt;/p&gt;</text>
+    </textTemplates>
     <variables>
         <description>campID</description>
         <name>campID</name>

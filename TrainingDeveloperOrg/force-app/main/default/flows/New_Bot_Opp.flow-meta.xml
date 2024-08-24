@@ -186,6 +186,10 @@
             <fieldType>InputField</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>&lt;p&gt;&lt;span style=&quot;background-color: rgb(247, 247, 249); font-size: 12px; font-family: Monaco, Menlo, Consolas, &amp;quot;Courier New&amp;quot;, monospace; color: rgb(221, 17, 68);&quot;&gt;You can&apos;t backdate an opportunity.&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                <formulaExpression>{!Estimated_Close_Date} &gt;= TODAY()</formulaExpression>
+            </validationRule>
         </fields>
         <fields>
             <name>Estimated_Amount</name>
@@ -217,6 +221,21 @@
             <fieldType>MultiSelectCheckboxes</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>NextStepsWarning</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(247, 247, 249); font-size: 12px; font-family: Monaco, Menlo, Consolas, &amp;quot;Courier New&amp;quot;, monospace; color: rgb(221, 17, 68);&quot;&gt;You didn&apos;t select any Next Steps. Your manager may visit you to confirm your plan of action.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Next_Steps</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <fieldType>ObjectProvided</fieldType>

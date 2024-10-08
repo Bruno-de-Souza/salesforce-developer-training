@@ -11,7 +11,6 @@ public class Customer {
     public Decimal balance; 
     public Long employees;
     public List<CustomerContact> contacts;
-
     public Date createdDate;
     public DateTime lastModifiedDate;
 

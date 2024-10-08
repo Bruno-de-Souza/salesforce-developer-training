@@ -1,7 +1,6 @@
 /**
  * @author bruno.moreira
  */
-
 public class Contato {
     
     public String nome;

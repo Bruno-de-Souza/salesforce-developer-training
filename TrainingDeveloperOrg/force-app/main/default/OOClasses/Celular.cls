@@ -1,7 +1,6 @@
 /**
  * @author bruno.moreira
  */
-
 public class Celular {
 
     public Decimal peso;

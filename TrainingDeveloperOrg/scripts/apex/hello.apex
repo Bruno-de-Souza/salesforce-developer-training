@@ -9,3 +9,4 @@ advisor.name = advisor.name;
 advisor.salary = 10000;
 System.debug(advisor);
 System.debug(advisor.getBonus());
+

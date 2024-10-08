@@ -1,3 +1,6 @@
+/**
+ * @author bruno.moreira
+ */
 public class MapCon {
     public void MapCon() {
         Map<Id, Contact> listCon = new Map<Id, Contact>([SELECT Id, Name FROM Contact Order By Name LIMIT 50]);

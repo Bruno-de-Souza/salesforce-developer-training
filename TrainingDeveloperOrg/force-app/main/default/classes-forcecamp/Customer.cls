@@ -49,6 +49,12 @@ public class Customer {
 
     public void addContact ( String name, String email ) {
 
+        if ( contacts == null ) {
+
+            contacts = new List<CustomerContact>();
+            
+        }
+
         CustomerContact contact = new CustomerContact();
         contact.name = name;
         contact.email = email;

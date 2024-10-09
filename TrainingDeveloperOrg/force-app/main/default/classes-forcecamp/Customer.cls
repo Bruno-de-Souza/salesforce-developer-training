@@ -22,6 +22,9 @@ public class Customer {
     }
 
     public Customer (String name) {
+        
+        //"this.name" sombreamento de variável local do metodo construtor com a mesma variável de instância da classe.
+
         this(); // deve ser o primeiro comando do construtor
         this.name = name;
         System.debug('Construtor que recebe o name');
@@ -33,27 +36,15 @@ public class Customer {
         System.debug('Construtor que recebe o name e status');
     }
 
-    public Customer(String name, String email, String type, String status, Boolean isActive, Decimal balance, Long employees, List<CustomerContact> contacts, Date createdDate, DateTime lastModifiedDate) {
-        this.name = name;
-        this.email = email;
+    //Boa prática é colocar a tríade de parâmetros no construtor "Máximo de 3      parâmetros no construtor".
+    public Customer(String name, String status, String type) {
+        this(name, status);
         this.type = type;
-        this.status = status;
-        this.isActive = isActive;
-        this.balance = balance;
-        this.employees = employees;
-        this.contacts = contacts;
-        this.createdDate = createdDate;
-        this.lastModifiedDate = lastModifiedDate;
+        System.debug('Construtor que recebe name, status e type');
     }
 
 
     public void addContact ( String name, String email ) {
-
-        if ( contacts == null ) {
-
-            contacts = new List<CustomerContact>();
-            
-        }
 
         CustomerContact contact = new CustomerContact();
         contact.name = name;

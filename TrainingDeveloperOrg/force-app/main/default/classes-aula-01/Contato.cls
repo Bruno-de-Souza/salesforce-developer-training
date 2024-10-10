@@ -11,5 +11,13 @@ public class Contato {
 
     public Contato() {
 
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
+
+        System.debug('Construtor padrão');
+
     }
+
+
 }

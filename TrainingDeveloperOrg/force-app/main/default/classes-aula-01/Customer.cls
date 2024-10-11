@@ -4,14 +4,23 @@
 public class Customer {
 
     public String name;
+    
     public String email;
+    
     public String type;
+    
     public String status;
+    
     public Boolean isActive;
+    
     public Decimal balance; 
+    
     public Long employees;
+    
     public List<CustomerContact> contacts;
+    
     public Date createdDate;
+    
     public DateTime lastModifiedDate;
 
     public Customer () {

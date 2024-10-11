@@ -45,11 +45,18 @@ public class Customer {
         System.debug('Construtor que recebe o name e status');
     }
 
-    //Boa prática é colocar a tríade de parâmetros no construtor "Máximo de 3      parâmetros no construtor".
+    //Boa prática é colocar a tríade de parâmetros no construtor "Máximo de 3 parâmetros no construtor".
     public Customer(String name, String status, String type) {
         this(name, status);
         this.type = type;
         System.debug('Construtor que recebe name, status e type');
+    }
+
+    //Sobrecarga - Variando os argumentos/parâmetros no construtor
+    public Customer(String name, String status, Date createdDate) {
+        this(name, status);
+        this.createdDate = Date.today();
+        System.debug('Construtor que executa a mesma operação de forma diferente!');
     }
 
 

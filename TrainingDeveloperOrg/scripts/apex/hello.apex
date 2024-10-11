@@ -1,6 +1,6 @@
 aula1 - Introdução ao Apex: {
 
-    Customer customer = new Customer('Bruno' , 'Ativo', 'Gold Client');
+    Customer customer = new Customer('User01', 'Active', Date.today());
 
     Celular celular = new celular();
     celular.marca = 'Apple';

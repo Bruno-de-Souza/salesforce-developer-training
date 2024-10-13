@@ -16,3 +16,34 @@ aula1 - Introdução ao Apex: {
 
 }
 
+aula3 - Nivelamento de OO: {
+
+    Account account = new account();
+    account.Name = 'acc01';
+    account.addError('CNPJ Inválido!');
+    System.debug(account.hasErrors());
+    System.debug(account.get('Name'));
+
+    Lead lead = new lead();
+    lead.Company = 'company02';
+    lead.addError('Nome de Lead Inválido!');
+    System.debug(lead.hasErrors());
+    System.debug(lead.get('Company'));
+
+    Contact contact = new Contact();
+    contact.FirstName = 'test03';
+    contact.Phone = '8089808080809';
+    contact.addError('Contato Inválido');
+    System.debug( contact.hasErrors());
+    System.debug( contact.get('FirstName'));
+
+    Customer customer = new Customer();
+    customer.name = 'customer01';
+    System.debug(customer.toString());
+    
+    Account acc02 = new Account();
+    acc02.Name = 'acc02';
+    System.debug(acc02.toString());
+
+}
+

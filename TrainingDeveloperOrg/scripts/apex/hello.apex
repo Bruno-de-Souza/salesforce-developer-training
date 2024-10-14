@@ -45,5 +45,20 @@ aula3 - Nivelamento de OO: {
     acc02.Name = 'acc02';
     System.debug(acc02.toString());
 
+    Advisor advisor = new advisor();
+    advisor.name = 'advisor';
+    advisor.salary = 3000;
+    System.debug(advisor.getBonus());
+
+    Manager manager = new Manager();
+    manager.name = 'manager';
+    manager.salary = 10000;
+    System.debug(manager.getBonus());
+
+    Advisor advisor2 = new Advisor();
+    Manager manager2 = new Manager();
+    Employee employee = advisor2;
+
+
 }
 

@@ -1,3 +1,6 @@
+/**
+ * @author bruno.moreira
+ */
 public virtual class Employee {
     
     public String name;

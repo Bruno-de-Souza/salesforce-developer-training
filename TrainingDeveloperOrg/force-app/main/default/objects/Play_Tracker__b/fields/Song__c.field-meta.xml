@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Song__c</fullName>
+    <description>Song</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Song</inlineHelpText>
+    <label>Song</label>
+    <referenceTo>Song__c</referenceTo>
+    <relationshipLabel>Play Tracker</relationshipLabel>
+    <relationshipName>Play_Tracker</relationshipName>
+    <required>true</required>
+    <type>Lookup</type>
+</CustomField>

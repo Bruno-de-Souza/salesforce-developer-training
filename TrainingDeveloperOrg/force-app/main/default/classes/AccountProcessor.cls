@@ -6,7 +6,7 @@ public class AccountProcessor {
     @future
     public static void countContacts (Set<Id> Ids) {
 
-        List<Account> accounts = [ SELECT Id, Number_Of_Contacts__c, ( SELECT Id FROM Contacts ) FROM Account WHERE ID IN: Ids ];
+        List<Account> accounts = [ SELECT Id, Number_Of_Contacts__c, ( SELECT Id FROM Contacts ) FROM Account WHERE Id IN: Ids ];
 
         for ( Account account: accounts ) {
 

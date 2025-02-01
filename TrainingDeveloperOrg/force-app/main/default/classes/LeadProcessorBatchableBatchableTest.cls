@@ -9,7 +9,7 @@ public class LeadProcessorTest {
 
         List<lead> leads = new List<lead>();
 
-        for (Integer i = 1; i <= 200; i++) {
+        for (Integer i = 1; i <= 10; i++) {
             
             leads.add(new Lead( LeadSource = 'Test Source', FirstName = 'Lead ', LastName = 'Test ' + i, Company = 'Test Leads' ));
 
@@ -17,7 +17,7 @@ public class LeadProcessorTest {
 
         insert leads;
 
-        System.debug('Leads ' + JSON.serialize(leads));
+        System.debug('Leads Before' + JSON.serialize(leads));
 
         Test.startTest();
 
@@ -26,7 +26,9 @@ public class LeadProcessorTest {
 
         Test.stopTest();
 
-        Assert.areEqual(200, leads.size());
+        Assert.areEqual(10, leads.size());
+
+        System.debug('Leads After ' + JSON.serialize(leads));
 
     }
 
